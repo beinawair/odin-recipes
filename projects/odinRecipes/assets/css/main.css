@@ -30,8 +30,12 @@ body {
     font-size: 1.5em;
     font-weight: 400;
     text-transform: uppercase;
-    color: #fff;
     letter-spacing: 1.5px;
+}
+
+.navigation h1 a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .toggle-btn {
@@ -107,34 +111,36 @@ width: 40px;
 }
 
 .menu-lists {
+    position: fixed;
     text-align: center;
     align-items: center;
     width: 450px;
     height: 100%;
     background: #232323;
-    display: none;
     transform: translateX(-450px);
-    transition: all .5s ease;
+    transition: all .5s ease-out;
+    top: 4em;
+    z-index: 1;
 }
 
 .menu-lists.active {
     position: fixed;
     height: 100%;
     display: block;
-    z-index: 10;
-    transition: all .5s ease;
-    animation: slide .5s forwards;
+    transform: translateX(0px);
     top: 4em;
+    transition: all .5s ease-out;
+    z-index: 1;
 }
 
-@keyframes slide {
+/* @keyframes slide {
     0% {
         transform: translateX(-450px);
     }
     100% {
         transform: translateX(0px);
     }
-}
+} */
 
 /* header */
 
@@ -146,7 +152,7 @@ width: 40px;
 
 .hero-img {
     align-items: center;
-    background-size: cover;
+    background-size: cover no-repeat;
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -199,7 +205,7 @@ main {
     transition: all .5s ease;
 }
 
-p {
+.menu p {
     font-size: 1em;
     color: #636363;
     margin-bottom: 2em;
@@ -264,5 +270,92 @@ p {
     .container-menu {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+/* breakfast migas */
+.container-hero h3 {
+    font-size: 2em;
+    font-weight: 400;
+    padding: .4em 1em;
+    letter-spacing: 2px;
+}
+
+.container-recipe {
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.container-recipe h2 {
+    font-size: 1.2em;
+    font-weight: 400;
+    letter-spacing: 1.5ps;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+    border-bottom: 2px solid #232323;
+}
+
+.ingredients {
+    padding: 1em 2em;
+    grid-column-start: auto;
+    margin-bottom: 4em;
+}
+
+.ingredients li p {
+    font-size: 1em;
+    color: #636363;
+    margin-bottom: 2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.5;     /* fallback */
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.recipe-steps {
+    padding: 1em;
+    list-style-type: none;
+}
+
+.recipe-steps li p {
+    font-size: 1em;
+    color: #636363;
+    margin-bottom: 2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.5;     /* fallback */
+    -webkit-box-orient: vertical;
+}
+
+.recipe-steps h3 {
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    letter-spacing: 2px;
+    background: #232323;
+    padding-left: 1em;
+    color: #fff;
+    border-radius: 20px;
+}
+
+@media screen and (min-width: 945px) {
+    main {
+        display: flex;
+        max-width: 1170px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .ingredients {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .container-hero h3 {
+        text-align: center;
     }
 }
